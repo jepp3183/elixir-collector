@@ -1,6 +1,7 @@
 # ElixirExporter
 
-**TODO: Add description**
+# TODO
+- Refactor to use modules or multi-target pattern for collectors to allow multiple instances of each
 
 ## Installation
 
