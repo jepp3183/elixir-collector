@@ -2,6 +2,11 @@ defmodule Metrics.Collectors.ApiCollector do
   @moduledoc """
   A behaviour for creating collectors that fetch data from an API. Currently made for only a single API request.
   If more advanced functionality is required, use Prometheus.Collector
+
+  Please note that all collectors implementing this behaviour will be automatically registered in accordance with [prometheus.erl](https://github.com/deadtrickster/prometheus.erl/tree/master?tab=readme-ov-file#configuration)
+  Otherwise, you can select the collectors manually the app configuration.
+
+  Check currently registered collectors with `:prometheus_collector.enabled_collectors`
   """
 
   @callback build_request :: Req.Request.t() | String.t()
@@ -13,7 +18,7 @@ defmodule Metrics.Collectors.ApiCollector do
   @callback build_mfs(Req.Response.t()) :: [{atom, String.t(), atom, any}]
 
   @doc """
-  Collect metrics from the response body. Should return list of {:metric_name, data}
+  Collect metrics from the response body. Should return list of metrics using Prometheus.Model
   This will define the actual metrics in the collector using labels
   """
   @callback collect_metrics(atom, any) :: any
