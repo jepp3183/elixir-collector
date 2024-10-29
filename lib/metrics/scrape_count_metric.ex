@@ -1,13 +1,15 @@
-defmodule Metrics.ScrapeMetric do
+defmodule Metrics.ScrapeCountMetric do
   use Prometheus.Metric
 
-  @counter [
-    name: :scrape_count,
-    labels: [],
-    help: "Number of times the /metrics endpoint has been hit",
-  ]
+  def setup() do
+    Counter.declare(
+      name: :scrape_count,
+      labels: [],
+      help: "Number of times the /metrics endpoint has been hit"
+    )
+  end
 
   def inc() do
-    Counter.inc([name: :scrape_count])
+    Counter.inc(name: :scrape_count)
   end
 end
