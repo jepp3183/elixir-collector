@@ -4,6 +4,7 @@
 - Refactor to use modules or multi-target pattern for collectors to allow multiple instances of each
 - Figure out how to attach with `iex` in the docker container
 - Disable/enable collectors using config file
+    - Adding own collectors through folder and load them on startup?
 - More scalable way to give config options. What's the Usual Elixir method?
 
 # Usage
