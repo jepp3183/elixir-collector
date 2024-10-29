@@ -1,9 +1,10 @@
-# ElixirExporter
+# Elixir Exporter
 
 # TODO
 - Refactor to use modules or multi-target pattern for collectors to allow multiple instances of each
 - Figure out how to attach with `iex` in the docker container
 - Disable/enable collectors using config file
+- More scalable way to give config options. What's the Usual Elixir method?
 
 # Usage
 
