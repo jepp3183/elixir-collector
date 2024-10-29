@@ -1,19 +1,21 @@
 defmodule Router do
   use Plug.Router
 
-  plug Plug.Logger, log: :debug
+  plug(Plug.Logger, log: :debug)
 
-  plug ScrapeCountPlug
-  plug Metrics.MainExporter
+  plug(ScrapeCountPlug)
+  plug(Metrics.MainExporter)
 
-  plug :match  # Plug that finds matching route
-  plug :dispatch  # Plug that calls the matching route from above
+  # Plug that finds matching route
+  plug(:match)
+  # Plug that calls the matching route from above
+  plug(:dispatch)
 
   get "/" do
-    send_resp(conn, 200, "Root!")
+    send_resp(conn, 200, "Hi!")
   end
 
   match _ do
     send_resp(conn, 404, "Not Found")
-  end 
+  end
 end

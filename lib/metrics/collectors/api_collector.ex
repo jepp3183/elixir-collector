@@ -36,8 +36,8 @@ defmodule Metrics.Collectors.ApiCollector do
           {:ok, res} ->
             build_mfs(res)
             |> Enum.map(fn {name, help, type, value} ->
-                Prometheus.Model.create_mf(name, help, type, __MODULE__, value)
-              end)
+              Prometheus.Model.create_mf(name, help, type, __MODULE__, value)
+            end)
             |> Enum.each(&callback.(&1))
 
           {:error, reason} ->

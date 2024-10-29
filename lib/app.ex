@@ -8,6 +8,7 @@ defmodule App do
     children = [
       {Plug.Cowboy, scheme: :http, plug: Router, options: [port: 4040]}
     ]
+
     opts = [strategy: :one_for_one, name: Application.Supervisor]
     Supervisor.start_link(children, opts)
   end
