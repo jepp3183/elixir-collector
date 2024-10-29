@@ -8,4 +8,4 @@ push: build
 
 .PHONY: compose
 compose: 
-	COMPOSE_FILE=./compose/docker-compose.yml docker-compose up -d
+	COMPOSE_FILE=./compose/docker-compose.yml docker compose up -d

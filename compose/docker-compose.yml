@@ -1,6 +1,6 @@
 services:
   elixir_exporter:
-    build: .
+    build: ..
     container_name: elixir_exporter
     ports:
       - 4040:4040
