@@ -1,4 +1,15 @@
 services:
+  elixir_exporter:
+    build: .
+    container_name: elixir_exporter
+    ports:
+      - 4040:4040
+    environment:
+      PLEX_URL: ${PLEX_URL}
+      PLEX_TOKEN: ${PLEX_TOKEN}
+      JELLYFIN_URL: ${JELLYFIN_URL}
+      JELLYFIN_TOKEN: ${JELLYFIN_TOKEN}
+
   prometheus:
     image: prom/prometheus
     container_name: prometheus
@@ -7,8 +18,6 @@ services:
     ports:
       - 9090:9090
     restart: unless-stopped
-    extra_hosts:
-    - "host.docker.internal:host-gateway"
     volumes:
       - ./prometheus:/etc/prometheus
       - prom_data:/prometheus

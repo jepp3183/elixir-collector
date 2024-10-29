@@ -15,7 +15,7 @@ defmodule Metrics.Collectors.JellyfinCollector do
   # Impl 
   @impl true
   def build_request() do
-    Req.new(url: "https://media.jeppeallerslev.dk/Sessions", params: [ActiveWithinSeconds: 15])
+    Req.new(url: "#{System.fetch_env!("JELLYFIN_URL")}/Sessions", params: [ActiveWithinSeconds: 15])
     |> Req.Request.put_header(
       "Authorization",
       "MediaBrowser Token=#{System.fetch_env!("JELLYFIN_TOKEN")}"

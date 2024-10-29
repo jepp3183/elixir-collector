@@ -13,7 +13,7 @@ defmodule Metrics.Collectors.PlexCollector do
   # Impl 
   @impl true
   def build_request() do
-    Req.new(url: "https://plex.jeppeallerslev.dk/status/sessions")
+    Req.new(url: "#{System.fetch_env!("PLEX_URL")}/status/sessions")
     |> Req.Request.put_header("X-Plex-Token", System.fetch_env!("PLEX_TOKEN"))
     |> Req.Request.put_header("Accept", "application/json")
   end

@@ -11,4 +11,4 @@ scrape_configs:
   scrape_interval: 15s
   static_configs:
   - targets:
-    - host.docker.internal:4040
+    - elixir_exporter:4040
