@@ -1,7 +1,11 @@
 defmodule Router do
   use Plug.Router
 
+  plug Plug.Logger, log: :debug
+
+  plug ScrapeCountPlug
   plug Metrics.MainExporter
+
   plug :match  # Plug that finds matching route
   plug :dispatch  # Plug that calls the matching route from above
 
